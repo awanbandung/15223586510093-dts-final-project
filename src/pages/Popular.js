@@ -4,8 +4,8 @@ import { useFetch } from "../hooks/useFetch";
 // styles
 import styles from "./Popular.module.css";
 
-import GameList from "../components/games/GameList";
-import Spinner from "../components/ui/Spinner";
+import GameList from "../containers/GameList";
+import Spinner from "../components/Spinner";
 
 const Popular = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -27,7 +27,6 @@ const Popular = () => {
     "Shooter",
     "Strategy",
     "Moba",
-    "Card Games",
     "Racing",
     "Sports",
     "Social",

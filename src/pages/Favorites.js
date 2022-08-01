@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { FavoritesContext } from "../context/FavoritesContext";
-import GameList from "../components/games/GameList";
+import GameList from "../containers/GameList";
 
 // styles
 import styles from "./Favorites.module.css";

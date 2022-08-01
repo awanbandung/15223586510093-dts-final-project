@@ -8,7 +8,7 @@ import { FavoritesContext } from "../context/FavoritesContext";
 // styles
 import styles from "./Details.module.css";
 
-import Spinner from "../components/ui/Spinner";
+import Spinner from "../components/Spinner";
 
 const Details = () => {
   const { id } = useParams();

@@ -6,25 +6,12 @@ import {
     auth,
     login,
     register,
-} from "../../apis/firebase";
+} from "../apis/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 export const AuthForm = (props) => {
     const navigate = useNavigate();
-
-    // di sini kita akan menggunakan hooks useAuthState
-    // useAuthState ini menerima 2 parameter:
-    // parameter 1: auth (yang kita buat dan export dari firebase)
-    // parameter 2 (optional): options (dalam bentuk object)
-    //    digunakan apabila ingin menggunakan hooks dengan lebih detail (melihat perubahan user)
-    //    (Pada pembelajaran ini tidak digunakan)
-
-    // Mengembalikan 3 data (dalam array)
-    // user: akan mengembalikan auth.User apabila ada yang log in, dan null bila tidak ada
-    // loading: boolean yang digunakan sebagai indikator apakah firebasenya sedang menunggu login
-    // error: bila ada error yang diberikan
     const [user, isLoading] = useAuthState(auth);
-
     const [credential, setCredential] = useState({
         email: "",
         password: "",
@@ -45,22 +32,10 @@ export const AuthForm = (props) => {
     };
 
     const loginHandler = () => {
-        // console.log("Login");
-        // navigate("/");
-
-        // Kita di sini tidak menggunakan navigate ke login lagi,
-        // karena pada firebase, ketika selesai login,
-        // maka auth statenya akan otomatis berubah (hooks useAuthState, data user)
         login(credential.email, credential.password);
     };
 
     const registerHandler = () => {
-        // console.log("Register");
-        // navigate("/login");
-
-        // Kita di sini tidak menggunakan navigate ke login lagi, karena pada Firebase
-        // Ketika selesai register akan otomatis login juga
-        // dan auth statenya akan otomatis berubah (hooks useAuthState, data user)
         register(credential.email, credential.password);
     };
 
@@ -72,19 +47,13 @@ export const AuthForm = (props) => {
         }
     };
 
-    // Lalu sekarang bagaimana kita track orang yang sedang login, dan apabila ada yang login
-    // kita pindahkan ke halaman utama?
 
-    // Kita gunakan.... useEffect !
     useEffect(
         () => {
-            // Lalu apabila usernya ditemukan (ada / tidak null)
-            // Maka akan kita navigasikan ke halaman HomePage
             if (user) {
                 navigate("/");
             }
         },
-        // Sekarang dependency kita tergantung pada user dan isLoading dari useAuthState
         [user, isLoading, navigate]
     );
 
@@ -95,10 +64,10 @@ export const AuthForm = (props) => {
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                width: '20rem',
-                height: '25rem',
+                width: '30rem',
+                height: '30rem',
                 boxSizing: 'border-box',
-                background: 'rgba(0,0,0,0.5)',
+                background: '#1c1e22',
                 borderRadius: '10px',
                 zIndex: 999,
                 margin: '0 auto',
@@ -135,10 +104,10 @@ export const AuthForm = (props) => {
                         focused
                         value={credential.password}
                         onChange={passwordHandler} />
-                    <Button variant="contained" color='primary' onClick={authOnClickHandler}>{props.note === 'login' ? 'Sign In' : 'Sign Up'}</Button>
+                    <Button variant="contained" color='primary' onClick={authOnClickHandler}>{props.note === 'login' ? 'Login' : 'Register'}</Button>
                 </Stack>
 
-                {props.note === 'login' ? <Typography variant='body2' sx={{ color: '#fff', marginTop: '40px' }}>Dont have any account? <Link to='/register' style={{ color: '#fff' }}>Sign Up Now</Link></Typography> : <Typography variant='body2' sx={{ color: '#fff', marginTop: '40px' }}>Already have an account? <Link to='/login' style={{ color: '#fff' }}>Sign In Now</Link></Typography>}
+                {props.note === 'login' ? <Typography variant='body2' sx={{ color: '#fff', marginTop: '20px', fontSize: '1em' }}>Dont have any account? <Link to='/register' style={{ color: '#1976d2' }}>Register</Link></Typography> : <Typography variant='body2' sx={{ color: '#fff', marginTop: '20px', fontSize: '1em' }}>Already have an account? <Link to='/login' style={{ color: '#fff' }}>Login Now</Link></Typography>}
             </Box>
         </Container >
     )

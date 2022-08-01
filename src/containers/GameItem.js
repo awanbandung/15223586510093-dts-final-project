@@ -5,7 +5,7 @@ import { GoBrowser } from "react-icons/go";
 // styles
 import styles from "./GameItem.module.css";
 
-import { FavoritesContext } from "../../context/FavoritesContext";
+import { FavoritesContext } from "../context/FavoritesContext";
 
 const GameItem = ({ item: game }) => {
   const { addToFavorite, gameIsFavorite } = useContext(FavoritesContext);

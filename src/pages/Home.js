@@ -6,8 +6,8 @@ import { useDebounce } from "../hooks/useDebounce";
 // styles
 import styles from "./Home.module.css";
 
-import GameList from "../components/games/GameList";
-import Spinner from "../components/ui/Spinner";
+import GameList from "../containers/GameList";
+import Spinner from "../components/Spinner";
 
 const Home = () => {
   const [filteredGames, setFilteredGames] = useState([]);

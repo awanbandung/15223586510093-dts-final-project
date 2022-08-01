@@ -1,4 +1,4 @@
-import { AiFillHeart } from "react-icons/ai";
+import { MdVerified } from "react-icons/md";
 // styles
 import styles from "./Footer.module.css";
 
@@ -9,14 +9,14 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className="container">
         <p className="text-muted">
-          © {currentYear} Gametis, all rights reserved.
+          © {currentYear} DTS Kominfo - REA2A
         </p>
         <p className={styles.created}>
-          Created with{" "}
+          Wawan Rudiana N - 15223586510093{" "}
           <span>
-            <AiFillHeart className={styles.heart} />
+            <MdVerified />
           </span>{" "}
-          asdsdfff
+        
         </p>
       </div>
     </footer>

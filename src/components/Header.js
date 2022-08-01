@@ -3,8 +3,9 @@ import { IoGameController } from "react-icons/io5";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/Login';
-import { auth, logout } from "../../apis/firebase";
-import { Nav, Button } from 'react-bootstrap';
+import { auth, logout } from "../apis/firebase";
+import { Nav } from 'react-bootstrap';
+import { Button } from '@mui/material'
 // styles
 import styles from "./Header.module.css";
 
@@ -17,10 +18,10 @@ const Header = () => {
   const [user] = useAuthState(auth);
 
   const logoutHandler = async () => {
-        await logout();
-        navigate('/')
-    }
-  
+    await logout();
+    navigate('/')
+  }
+
 
   return (
     <header className={styles.header}>
@@ -55,12 +56,12 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-          
-                        <Nav.Link style={{ color: 'white', }} disabled>{user !== null ? user.email : ""}</Nav.Link>
-                        {user !== null ?
-                            <Button size='lg' variant='danger' onClick={logoutHandler}><LoginIcon style={{ marginRight: '0.6rem' }} />Logout</Button> :
-                            <Button size='lg'><LoginIcon style={{ marginRight: '0.6rem' }} /><Link style={{ textDecoration: 'none', color: 'white' }} to="/login">Login</Link></Button>}
-           
+
+              <Nav.Link style={{ color: 'gainsboro', }} disabled>{user !== null ? user.email : ""}</Nav.Link>
+              {user !== null ?
+                <Button onClick={logoutHandler}><LoginIcon style={{ marginRight: '0.6rem', fontSize: 'x-large'}} />Logout</Button> :
+                <Button><LoginIcon style={{ marginRight: '0.6rem', fontSize: 'x-large' }} /><Link to="/login">Login</Link></Button>}
+
             </li>
           </ul>
         </nav>

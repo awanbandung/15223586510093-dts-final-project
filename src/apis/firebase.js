@@ -86,13 +86,6 @@ const login = async (email, password) => {
 // Fungsi untuk reset Password
 const resetPassword = async (email) => {
     // Dokumentasi: https://firebase.google.com/docs/reference/js/auth.md#sendpasswordresetemail
-    // try {
-    //     await sendPasswordResetEmail(auth, email);
-
-    //     console.log("Password reset sudah dikirimkan");
-    // } catch (err) {
-    //     console.log(err);
-    // }
 
     await sendPasswordResetEmail(auth, email)
     .then((res) => console.log(res))
