@@ -1,14 +1,14 @@
-import { useContext } from "react";
+//import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AiFillWindows, AiFillHeart } from "react-icons/ai";
+import { AiFillWindows} from "react-icons/ai";
 import { GoBrowser } from "react-icons/go";
 // styles
 import styles from "./GameItem.module.css";
 
-import { FavoritesContext } from "../context/FavoritesContext";
+//import { FavoritesContext } from "../context/FavoritesContext";
 
 const GameItem = ({ item: game }) => {
-  const { addToFavorite, gameIsFavorite } = useContext(FavoritesContext);
+//  const { addToFavorite, gameIsFavorite } = useContext(FavoritesContext);
 
   return (
     <div className={styles.card}>
@@ -37,7 +37,7 @@ const GameItem = ({ item: game }) => {
               />
             )}
           </div>
-          <button
+          {/* <button
             onClick={() => addToFavorite(game)}
             className={styles.btn}
             title={
@@ -50,7 +50,7 @@ const GameItem = ({ item: game }) => {
               className={styles.heart_icon}
               style={{ color: gameIsFavorite(game.id) ? "red" : "#aaaaaa" }}
             />
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

@@ -3,8 +3,8 @@ import { createContext, useEffect, useReducer } from "react";
 export const FavoritesContext = createContext({
   favorites: [],
   totalFavorites: 0,
-  addToFavorite: (game) => {},
-  gameIsFavorite: (gameId) => {},
+  addToFavorite: (game) => { },
+  gameIsFavorite: (gameId) => { },
 });
 
 const favoriteReducer = (favorites, action) => {
